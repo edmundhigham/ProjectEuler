@@ -4,8 +4,14 @@
 # C++ Compiler
 CPP = g++
 
+# C++ Optimisation Flags
+OPT_CPP = -O3
+
+# C++ Standard
+STD_CPP = -std=c++11
+
 # C++ Flags
-FLAGS_CPP = -O3
+FLAGS_CPP = $(OPT_CPP) $(STD_CPP)
 
 # RUST Compiler
 RUSTC = rustc
@@ -68,6 +74,10 @@ question14: src/src_cpp/collatz_seq.cpp
 	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
 
 question18: src/src_cpp/path_sum.cpp
+	mkdir -p bin/
+	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
+	
+question31: src/src_cpp/coin_sums.cpp
 	mkdir -p bin/
 	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
 
