@@ -25,11 +25,11 @@ What is the millionth lexicographic permutation of the digits
 
 typedef unsigned int uint;
 
-#define PERMUTE_NUM 1
+#define PERMUTE_NUM 1000000
 
 using namespace std;
 
-bool permute(vector<int>* list){
+bool permute(vector<int>& list){
     
     /* Psuedocode for funzies
     
@@ -61,16 +61,15 @@ bool permute(vector<int>* list){
     -> Reverse the sequence from a[k + 1] up to and including the final
     element a[n].
     
-    Reverse sort algorithm... (see book LULZ) probably quick sort as
-    the vector is only 10 elems long...
-    
     */
     
     int k {0};
-    int l {0}; 
-    vector<int> buff{0};
+    int l {0};
     
-    k = list->size()-2;
+    int buff {0};
+    
+    k = list.size()-2;
+    
     while ( list[k] > list[k+1] )
     {
         --k;
@@ -79,15 +78,24 @@ bool permute(vector<int>* list){
         }
     }
 
-    l = list->size()-1;
+    l = list.size()-1;
+    
     while( list[k] > list[l] )
     {
         --l;
     }
     
-    buff = list[k];
+    buff    = list[k];
     list[k] = list[l];
     list[l] = buff;
+    
+    int j = list.size()-1;
+    for (int i = k+1; i < j; ++i){
+        buff    = list[j];
+        list[j] = list[i];
+        list[i] = buff;
+        --j;
+    }
     
     return true;
 };
@@ -95,11 +103,13 @@ bool permute(vector<int>* list){
 int main(int argc, char* argv[]){
     
     vector<int> numsAvailable{0,1,2,3,4,5,6,7,8,9};
+    bool next = true;
     
-    uint i {0};
+    uint i {1};
     
-    while (permute(&numsAvailable) && (i < PERMUTE_NUM))
+    while (next && (i < PERMUTE_NUM))
     {
+        permute(numsAvailable);
         ++i;
     }
     
