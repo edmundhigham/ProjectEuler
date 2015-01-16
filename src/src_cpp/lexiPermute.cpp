@@ -65,23 +65,17 @@ bool permute(vector<int>& list){
     
     int k {0};
     int l {0};
-    
     int buff {0};
     
     k = list.size()-2;
-    
     while ( list[k] > list[k+1] )
     {
         --k;
-        if ( k < 0 ) {
-            return false;
-        }
+        if ( k < 0 ) return false;
     }
 
     l = list.size()-1;
-    
-    while( list[k] > list[l] )
-    {
+    while( list[k] > list[l] ){
         --l;
     }
     
@@ -107,17 +101,16 @@ int main(int argc, char* argv[]){
     
     uint i {1};
     
-    while (next && (i < PERMUTE_NUM))
-    {
-        permute(numsAvailable);
+    while (next && (i < PERMUTE_NUM)){
+        next = permute(numsAvailable);
         ++i;
     }
     
     if (i < PERMUTE_NUM ){
-        cout << "The PERMUTE_NUM permutation was not found." << endl;
+        cout << "The " << PERMUTE_NUM << " permutation was not found." << endl;
     }
     else{
-        cout << "The PERMUTE_NUM permutation is: ";
+        cout << "The " << PERMUTE_NUM << " permutation is: ";
         for_each(numsAvailable.begin(), numsAvailable.end(), [](vector<int>::value_type val) { cout << val << " "; });
         cout << endl;
     }
