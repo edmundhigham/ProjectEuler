@@ -67,25 +67,29 @@ bool permute(vector<int>* list){
     */
     
     int k {0};
-    int l {0};
+    int l {0}; 
     vector<int> buff{0};
     
     k = list->size()-2;
-    while ( list[k] > list[k+1] ){
+    while ( list[k] > list[k+1] )
+    {
         --k;
-        if ( k < 0 ) return 0;
-    };
+        if ( k < 0 ) {
+            return false;
+        }
+    }
 
     l = list->size()-1;
-    while( list[k] > list[l] ){
+    while( list[k] > list[l] )
+    {
         --l;
-    };
+    }
     
     buff = list[k];
     list[k] = list[l];
     list[l] = buff;
     
-    return 1;
+    return true;
 };
 
 int main(int argc, char* argv[]){
@@ -94,7 +98,8 @@ int main(int argc, char* argv[]){
     
     uint i {0};
     
-    while (permute(&numsAvailable) && (i < PERMUTE_NUM)) {
+    while (permute(&numsAvailable) && (i < PERMUTE_NUM))
+    {
         ++i;
     }
     
