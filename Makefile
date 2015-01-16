@@ -2,12 +2,12 @@
 # Edmund Higham, 2014
 
 # C++ Compiler
-CPP = g++
+CPP=g++
 
-# C++ Optimisation Flags
-OPT_CPP = -O3
+# C++ Optimisation Flags                                                                                                                                                                          
+OPT_CPP = -O0 -g
 
-# C++ Standard
+# C++ Standard                                                                                                                                                                                    
 STD_CPP = -std=c++11
 
 # C++ Flags
@@ -32,7 +32,7 @@ question3: src/src_cpp/prime_factor.cpp
 question4: src/src_cpp/palindrome.cpp
 	mkdir -p bin/
 	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
-
+	
 question5: src/src_cpp/even_divisible.cpp
 	mkdir -p bin/
 	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
@@ -74,6 +74,10 @@ question14: src/src_cpp/collatz_seq.cpp
 	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
 
 question18: src/src_cpp/path_sum.cpp
+	mkdir -p bin/
+	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
+	
+question24: src/src_cpp/lexiPermute.cpp
 	mkdir -p bin/
 	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
 	
