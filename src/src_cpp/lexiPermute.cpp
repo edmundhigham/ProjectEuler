@@ -85,9 +85,9 @@ bool permute(vector<int>& list){
     
     int j = list.size()-1;
     for (int i = k+1; i < j; ++i){
-        buff    = list[j];
-        list[j] = list[i];
-        list[i] = buff;
+        buff    = list[i];
+        list[i] = list[j];
+        list[j] = buff;
         --j;
     }
     
@@ -111,7 +111,8 @@ int main(int argc, char* argv[]){
     }
     else{
         cout << "The " << PERMUTE_NUM << " permutation is: ";
-        for_each(numsAvailable.begin(), numsAvailable.end(), [](vector<int>::value_type val) { cout << val << " "; });
+        for_each(numsAvailable.begin(), numsAvailable.end(), \
+            [](vector<int>::value_type val) { cout << val << " "; });
         cout << endl;
     }
     
