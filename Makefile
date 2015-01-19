@@ -5,7 +5,7 @@
 CPP=g++
 
 # C++ Optimisation Flags                                                                                                                                                                          
-OPT_CPP = -O0 -g
+OPT_CPP = -O3
 
 # C++ Standard                                                                                                                                                                                    
 STD_CPP = -std=c++11
@@ -15,7 +15,6 @@ FLAGS_CPP = $(OPT_CPP) $(STD_CPP)
 
 # RUST Compiler
 RUSTC = rustc
-
 
 question1: src/src_cpp/mult_3n5.cpp
 	mkdir -p bin/
@@ -82,6 +81,10 @@ question24: src/src_cpp/lexiPermute.cpp
 	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
 	
 question31: src/src_cpp/coin_sums.cpp
+	mkdir -p bin/
+	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
+	
+question35: src/src_cpp/circular_primes.cpp
 	mkdir -p bin/
 	$(CPP) $(FLAGS_CPP) $^ $ -o bin/$@
 

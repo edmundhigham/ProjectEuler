@@ -10,24 +10,25 @@ using namespace std;
 
 bool is_prime(uint *num){
 
-    bool prime = 0;
+    bool prime = 1;
 
-    if (sqrt(*num) >= 2){
+    if (floor(sqrt(*num)) >= 2){
 
-        for(uint i = 2; i <= floor(sqrt(*num)); ++i){
-    
-            if (*num % i == 0) {
-                prime = 0;
-                break;
+        if (*num % 2 == 0){
+
+            prime = 0;
+        }
+        else{
+
+            for(uint i = 3; i <= floor(sqrt(*num)); i+=2){
         
-            }
-            else{
-                prime = 1;
+                if (*num % i == 0) {
+                    prime = 0;
+                    break;
+            
+                }
             }
         }
-    }
-    else{
-        prime = 1;
     }
 
 return prime;

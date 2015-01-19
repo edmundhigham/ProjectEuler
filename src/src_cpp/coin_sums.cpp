@@ -19,8 +19,6 @@ How many different ways can £2 be made using any number of coins?
 */
 
 #include <iostream>
-#include <string>
-#include <sstream>
 #include <algorithm>
 #include <vector>
 

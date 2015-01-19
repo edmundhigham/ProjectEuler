@@ -18,8 +18,6 @@ What is the millionth lexicographic permutation of the digits
 */
 
 #include <iostream>
-#include <string>
-#include <sstream>
 #include <algorithm>
 #include <vector>
 
@@ -38,7 +36,7 @@ bool permute(vector<int>& list){
     -> Find the largest index k such that a[k] < a[k + 1]. If no such index
     exists, the permutation is the last permutation.
     
-    k = list.size() - 1
+    k = list.size() - 2
     while ( list[k] > list[k+1] )
         --k
         if (k < 0)
@@ -46,11 +44,9 @@ bool permute(vector<int>& list){
     
     -> Find the largest index l greater than k such that a[k] < a[l].
     
-    l = list.size()
+    l = list.size() - 1
     while( list[k] > list[l] )
         --l
-        if (l < 0)
-            error??
     
     -> Swap the value of a[k] with that of a[l].
     
